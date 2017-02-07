@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title></title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+  <script src="./jquery.checkbox-plus.js"></script>
+</head>
+
+<body>
+  <input id="checkbox" type="checkbox" name="" value="">
+  <br>
+  <button type="button" id="set1">选中</button>
+  <button type="button" id="set2">不选择</button>
+  <button type="button" id="set3">不确定</button>
+  <button type="button" id="get">取值</button>
+</body>
+<script>
+  $("#set1").click(function () {
+    var $checkbox = $("#checkbox");
+    $checkbox.setCheckboxStatus('1');
+  });
+  $("#set2").click(function () {
+    var $checkbox = $("#checkbox");
+    $checkbox.setCheckboxStatus('0');
+  });
+  $("#set3").click(function () {
+    var $checkbox = $("#checkbox");
+    $checkbox.setCheckboxStatus('-1');
+  });
+  $("#get").click(function () {
+    var $checkbox = $("#checkbox");
+    var status = $checkbox.getCheckboxStatus();
+    alert(status);
+  });
+
+</script>
+
+</html>
