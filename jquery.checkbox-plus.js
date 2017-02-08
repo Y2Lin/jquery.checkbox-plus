@@ -7,10 +7,21 @@
     var checked = $this.prop("checked");
     var indeterminate = $this.prop("indeterminate");
     var result = 0;
-    if (indeterminate === true) {
-      result = -1;
-    } else if (checked === true) {
-      result = 1;
+    switch (true) {
+      case ((indeterminate == true) && (checked === true)):
+        result = -1;
+        break;
+      case ((indeterminate == true) && (checked === false)):
+        result = -1;
+        break;
+      case ((indeterminate == false) && (checked === false)):
+        result = 0;
+        break;
+      case ((indeterminate == false) && (checked === true)):
+        result = 1;
+        break;
+      default:
+        break;
     }
     return result
   }
@@ -20,15 +31,21 @@
     value = value + '';
     var checked = false;
     var indeterminate = false;
-    if (value === '1') {
-      checked = true;
-      indeterminate = false;
-    } else if (value === '0') {
-      checked = false;
-      indeterminate = false;
-    } else if (value === '-1') {
-      checked = false;
-      indeterminate = true;
+    switch (value) {
+      case '1':
+        checked = true;
+        indeterminate = false;
+        break;
+      case '0':
+        checked = false;
+        indeterminate = false;
+        break;
+      case '-1':
+        checked = false;
+        indeterminate = true;
+        break;
+      default:
+        break;
     }
     $this.prop('checked', checked).prop('indeterminate', indeterminate);
   }
